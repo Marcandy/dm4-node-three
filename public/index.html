@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html ng-app="ReadingList" lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport"
@@ -7,9 +7,26 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 </head>
-<body>
+<body ng-controller="listCtrl">
 
-<h1>Hello world!</h1>
+<h1>My Reading List!</h1>
 
+<ul>
+	<li ng-repeat="book in readingList">
+		<h3>{{ book.title }}</h3>
+		<p>{{ book.description }}</p>
+	</li>
+</ul>
+
+<ul>
+	<li ng-repeat="book in books">
+		<h3>{{ book.title }}</h3>
+		<p>{{ book.description }}</p>
+		<button ng-click="addToReadingList( book )">Add to Reading List</button>
+	</li>
+</ul>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
